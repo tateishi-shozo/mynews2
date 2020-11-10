@@ -52,4 +52,13 @@ class ProfileController extends Controller
         
         return redirect('admin/profile/create');
     }
+    
+    public function delete(Request $request)
+    {
+      // 該当するNews Modelを取得
+      $profile = Profile::find($request->id);
+      // 削除する
+      $profile->delete();
+      return redirect('admin/profile/');
+    }
 }
